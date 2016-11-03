@@ -35,6 +35,7 @@ function send(locals, cb){
 
   template.render(locals, function (err, results) {
     if (err) {
+      console.log("render err=" + err);
       return cb(err);
     }
 
@@ -52,6 +53,7 @@ function send(locals, cb){
 
     transport.sendMail(data, function (err, responseStatus) {
       if (err) {
+        console.log("transport err=" + err);
         return cb(err);
       }
       cb(null);
@@ -74,6 +76,7 @@ function batch(locals, emailList, cb){
 
     send(data, done);
   }, function(err){
+      console.log("batch err=" + err);
       cb(err);
   });
 }
