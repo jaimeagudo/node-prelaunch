@@ -12,8 +12,8 @@ mongoose.connection.once('open', sendEmailUpdates);
 
 function sendEmailUpdates(){
   var locals = {
-    from: 'Node Prelaunch <postmaster@' + secrets.mailgun.domain + '>',
-    subject: 'Node Prelaunch: New Features',
+    from: secrets.appName + ' <postmaster@' + secrets.mailgun.domain + '>',
+    subject: secrets.appName +': New Features',
     template: 'campaign'
   };
 
